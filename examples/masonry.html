@@ -35,6 +35,7 @@
 
 <script src="../lib/CG.js"></script>
 <script src="../lib/Masonry.js"></script>
+<script src="../lib/events/MasonryEvents.js"></script>
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         $cg('.wrap').masonry({
@@ -42,7 +43,13 @@
             width: 200,
             columnGapBottom: 10,
             columnGapRight: 10,
-            beforeRenderElement: function (el) {
+            events: {
+                beforeRenderElement: function (el) {
+                    /** пользовательское событие*/
+                },
+                afterRenderElement: function (el) {
+                    /** пользовательское событие*/
+                }
             }
         })
     });
