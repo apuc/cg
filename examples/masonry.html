@@ -7,29 +7,33 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="../styles/style.css">
-
+    <style>
+        .card {
+            width: calc(100% / 3);
+        }
+    </style>
 </head>
 <body>
 <div>
     <a href="#" onclick="reInit()">Изменить</a>
 </div>
 <div class="wrap">
-    <div class="card" style="height: 100px" data-horizontal="2">1</div>
-    <div class="card" style="height: 120px">2</div>
-    <div class="card" style="height: 80px" data-horizontal="2">3</div>
-    <div class="card" style="height: 180px" data-horizontal="2">4</div>
-    <div class="card changeH" style="height: 110px" data-vertical="2" data-horizontal="2">5</div>
-    <div class="card" style="height: 100px">6</div>
-    <div class="card" style="height: 110px">7</div>
-    <div class="card" style="height: 170px">8</div>
-    <div class="card" style="height: 600px" data-horizontal="2" data-vertical="2">9</div>
-    <div class="card" style="height: 110px">10</div>
-    <div class="card" style="height: 150px">11</div>
-    <div class="card" style="height: 150px" data-horizontal="3">12</div>
-    <div class="card" style="height: 150px" data-vertical="2">13</div>
-    <div class="card " style="height: 300px">14</div>
-    <div class="card" style="height: 300px">15</div>
-    <div class="card" style="height: 400px">16</div>
+    <div class="card" style="height: 100px" data-horizontal="1">1</div>
+    <div class="card" style="height: 120px" data-horizontal="1">2</div>
+    <div class="card" style="height: 80px" data-horizontal="2" data-vertical="3">3</div>
+    <div class="card" style="height: 180px" data-horizontal="1">4</div>
+    <div class="card changeH" style="height: 110px" data-horizontal="2">5</div>
+    <div class="card" style="height: 100px" data-horizontal="1">6</div>
+    <div class="card" style="height: 110px" data-horizontal="2">7</div>
+    <div class="card" style="height: 170px" data-horizontal="1">8</div>
+    <div class="card" style="height: 600px" data-horizontal="1" data-vertical="2">9</div>
+    <div class="card" style="height: 110px" data-horizontal="1">10</div>
+    <div class="card" style="height: 150px" data-horizontal="2">11</div>
+    <!--<div class="card" style="height: 150px" data-horizontal="3">12</div>-->
+    <!--<div class="card" style="height: 150px" data-vertical="2">13</div>-->
+    <!--<div class="card " style="height: 300px">14</div>-->
+    <!--<div class="card" style="height: 300px">15</div>-->
+    <!--<div class="card" style="height: 400px">16</div>-->
 
 </div>
 
@@ -41,10 +45,19 @@
 <script>
     document.addEventListener("DOMContentLoaded", function () {
         $cg('.card').masonry({
-            cols: 4,
+            cols: 3,
             template: TEMPLATE_FIXED_SIZE,
-            width: 200,
-            height:180,
+            width: 300,
+            height: 200,
+            rowsBetween: [
+                {
+                    after: 2,
+                    height: 200
+                },
+                {
+                    after: 3,
+                }
+            ],
             columnGapBottom: 8,
             columnGapRight: 8,
             events: {
@@ -62,7 +75,7 @@
         $cg('.card').masonry({
             cols: 3,
             width: 300,
-            height:250,
+            height: 250,
             columnGapBottom: 10,
             columnGapRight: 10
         }).reInit();
